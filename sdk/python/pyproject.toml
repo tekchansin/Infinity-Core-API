@@ -4,11 +4,25 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "infinity-core-api"
-version = "1.0.0rc1"
+version = "0.9.0"
 description = "Write extensions for Infinity Core: control it, read its library, and give it lyrics, album and artist information, covers, amp volume and more."
+readme = "README.md"
 requires-python = ">=3.9"
 license = { text = "MIT" }
+authors = [{ name = "tekChansin" }]
+keywords = ["infinity core", "music", "extension", "home automation"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Multimedia :: Sound/Audio :: Players",
+]
 dependencies = []
+
+[project.urls]
+Homepage = "https://anantarultimate.com/api.html"
+Source = "https://github.com/tekchansin/Infinity-Core-API"
+Specification = "https://github.com/tekchansin/Infinity-Core-API/blob/main/spec/SPEC.md"
 
 [project.optional-dependencies]
 discovery = ["zeroconf>=0.120"]

@@ -1,8 +1,8 @@
 # infinity-core-api (Python)
 
 The Infinity Core API for Python 3.9 or newer. One file, `infinity_core_api.py`, standard library only (asyncio +
-ssl). It works in plain scripts and inside Home Assistant. The specification is [SPEC.md](../../spec/SPEC.md); the
-tutorial is [GETTING_STARTED.md](../../GETTING_STARTED.md).
+ssl). It works in plain scripts and inside Home Assistant. The specification is [SPEC.md](https://github.com/tekchansin/Infinity-Core-API/blob/main/spec/SPEC.md); the
+tutorial is [GETTING_STARTED.md](https://github.com/tekchansin/Infinity-Core-API/blob/main/GETTING_STARTED.md).
 
 ## Install
 
@@ -54,7 +54,7 @@ ica.Extension(*, id, name, version, publisher, uses=(), provides=(), homepage=""
 ```
 
 All arguments are keywords. They become the `hello` Infinity Core shows to the Owner
-([SPEC §3.1](../../spec/SPEC.md#31-hello-extension--core-first-message)).
+([SPEC §3.1](https://github.com/tekchansin/Infinity-Core-API/blob/main/spec/SPEC.md#31-hello-extension--core-first-message)).
 
 | argument | default | meaning |
 |---|---|---|
@@ -62,8 +62,8 @@ All arguments are keywords. They become the `hello` Infinity Core shows to the O
 | `name` | required | shown in Settings › Extensions; at most 40 characters |
 | `version` | required | your version, e.g. `"1.2.0"` |
 | `publisher` | required | you or your organisation |
-| `uses` | `()` | the scopes you need: `read`, `control`, `library`, `library.manage`, `sound` ([SPEC §4](../../spec/SPEC.md#4-scopes)) |
-| `provides` | `()` | the services you give: `lyrics`, `album_info`, `artist_info`, `cover`, `radio`, `actions`, `volume_control`, `source_control`, `status`, `settings` ([SPEC §7](../../spec/SPEC.md#7-services-you-provide-core--extension)) |
+| `uses` | `()` | the scopes you need: `read`, `control`, `library`, `library.manage`, `sound` ([SPEC §4](https://github.com/tekchansin/Infinity-Core-API/blob/main/spec/SPEC.md#4-scopes)) |
+| `provides` | `()` | the services you give: `lyrics`, `album_info`, `artist_info`, `cover`, `radio`, `actions`, `volume_control`, `source_control`, `status`, `settings` ([SPEC §7](https://github.com/tekchansin/Infinity-Core-API/blob/main/spec/SPEC.md#7-services-you-provide-core--extension)) |
 | `homepage` | `""` | an http(s) address; left out of `hello` when empty |
 | `description` | `""` | at most 200 characters; left out when empty |
 | `state_dir` | `~/.config/infinity-core-api/<id>/` | where the token and the key are kept (see [Saved state](#saved-state)) |
@@ -95,7 +95,7 @@ async def changed(params): ...
 ```
 
 Calls `handler(params)` for each notification `event` from Infinity Core. Several handlers may share an event; they
-run in the order they were added. Use it for the events in [SPEC §6](../../spec/SPEC.md#6-events-core--extension-notifications)
+run in the order they were added. Use it for the events in [SPEC §6](https://github.com/tekchansin/Infinity-Core-API/blob/main/spec/SPEC.md#6-events-core--extension-notifications)
 (subscribe to them with `subscribe()`), and for `extension.state`, which reaches your handler after the SDK has
 handled it.
 
@@ -123,15 +123,15 @@ The methods Infinity Core calls:
 
 | service | method | params → result |
 |---|---|---|
-| `lyrics` | `lyrics.get` | [SPEC §7.1](../../spec/SPEC.md#71-lyrics) |
-| `album_info` | `album.search`, `album.get` | [SPEC §7.2](../../spec/SPEC.md#72-album_info) |
-| `artist_info` | `artist.get` | [SPEC §7.3](../../spec/SPEC.md#73-artist_info) |
-| `cover` | `cover.search` | [SPEC §7.4](../../spec/SPEC.md#74-cover) |
-| `radio` | `radio.search` | [SPEC §7.11](../../spec/SPEC.md#711-radio) |
-| `actions` | `actions.run` | [SPEC §7.6](../../spec/SPEC.md#76-actions) |
-| `volume_control` | `volume_control.set` | [SPEC §7.7](../../spec/SPEC.md#77-volume_control) |
-| `source_control` | `source_control.select`, `source_control.standby` | [SPEC §7.8](../../spec/SPEC.md#78-source_control) |
-| `settings` | `settings.get`, `settings.save` | [SPEC §7.10](../../spec/SPEC.md#710-settings) |
+| `lyrics` | `lyrics.get` | [SPEC §7.1](https://github.com/tekchansin/Infinity-Core-API/blob/main/spec/SPEC.md#71-lyrics) |
+| `album_info` | `album.search`, `album.get` | [SPEC §7.2](https://github.com/tekchansin/Infinity-Core-API/blob/main/spec/SPEC.md#72-album_info) |
+| `artist_info` | `artist.get` | [SPEC §7.3](https://github.com/tekchansin/Infinity-Core-API/blob/main/spec/SPEC.md#73-artist_info) |
+| `cover` | `cover.search` | [SPEC §7.4](https://github.com/tekchansin/Infinity-Core-API/blob/main/spec/SPEC.md#74-cover) |
+| `radio` | `radio.search` | [SPEC §7.11](https://github.com/tekchansin/Infinity-Core-API/blob/main/spec/SPEC.md#711-radio) |
+| `actions` | `actions.run` | [SPEC §7.6](https://github.com/tekchansin/Infinity-Core-API/blob/main/spec/SPEC.md#76-actions) |
+| `volume_control` | `volume_control.set` | [SPEC §7.7](https://github.com/tekchansin/Infinity-Core-API/blob/main/spec/SPEC.md#77-volume_control) |
+| `source_control` | `source_control.select`, `source_control.standby` | [SPEC §7.8](https://github.com/tekchansin/Infinity-Core-API/blob/main/spec/SPEC.md#78-source_control) |
+| `settings` | `settings.get`, `settings.save` | [SPEC §7.10](https://github.com/tekchansin/Infinity-Core-API/blob/main/spec/SPEC.md#710-settings) |
 
 #### `@ext.on_ready`
 
@@ -174,7 +174,7 @@ whole. It returns the function, so it also works as `ext.on_state(fn)`.
 
 `"disconnected"` is not sent when a connection attempt fails while the state is already `"disconnected"`, so it comes
 once, not on every retry. `pending` lists what you asked for beyond the current grant; the old grant keeps working
-until the Owner decides ([SPEC §3.2](../../spec/SPEC.md#32-the-answer)).
+until the Owner decides ([SPEC §3.2](https://github.com/tekchansin/Infinity-Core-API/blob/main/spec/SPEC.md#32-the-answer)).
 
 ### Methods
 
@@ -192,7 +192,7 @@ Connects and stays connected. It never returns normally.
 On a dropped link, a refused connection, a TLS or WebSocket error, or a timeout, it waits and tries again: about 1, 2,
 4 … up to 60 s, plus up to 1 s at random. After a connection that ended without an error the wait goes back to 1 s,
 except when it ended in `disabled` (Turn off or Not now): then it waits 60 s ("try again later, quietly",
-[SPEC §3.2](../../spec/SPEC.md#32-the-answer)). Each new connection checks the key, sends `hello` with the saved
+[SPEC §3.2](https://github.com/tekchansin/Infinity-Core-API/blob/main/spec/SPEC.md#32-the-answer)). Each new connection checks the key, sends `hello` with the saved
 token, and handles the answer as in [States](#states).
 
 It raises:
@@ -212,13 +212,13 @@ Cancelling the task that runs `run()` closes the socket.
 
 #### `await ext.call(method, params=None, timeout=30)`
 
-Calls an Infinity Core method ([SPEC §5](../../spec/SPEC.md#5-methods-extension--core)) and returns its `result`.
+Calls an Infinity Core method ([SPEC §5](https://github.com/tekchansin/Infinity-Core-API/blob/main/spec/SPEC.md#5-methods-extension--core)) and returns its `result`.
 `params` is left out when `None`.
 
 It raises:
 
 - `Error`: an error answer, e.g. `-32001` not enabled yet, `-32003` not allowed, `-32029` too many requests
-  ([SPEC §9](../../spec/SPEC.md#9-errors));
+  ([SPEC §9](https://github.com/tekchansin/Infinity-Core-API/blob/main/spec/SPEC.md#9-errors));
 - `ConnectionError("not connected")`: there is no connection now;
 - `ConnectionError("disconnected")`: the link dropped before the answer. It is raised as soon as the socket closes,
   not after the timeout;
@@ -230,11 +230,11 @@ Sends a notification: no answer comes back. It does nothing when there is no con
 
 | method | params | SPEC |
 |---|---|---|
-| `status.set` | `{message, error?}`: one line, at most 80 characters | [§7.9](../../spec/SPEC.md#79-status) |
-| `actions.set` | `{actions: [{id, label, on: ["track","album","artist"]}]}` | [§7.6](../../spec/SPEC.md#76-actions) |
-| `volume_control.register` | `{id, name, value, min, max, step, unit, muted}` | [§7.7](../../spec/SPEC.md#77-volume_control) |
-| `volume_control.update` | `{id, value, muted}` | [§7.7](../../spec/SPEC.md#77-volume_control) |
-| `source_control.register` | `{id, name, standby}` | [§7.8](../../spec/SPEC.md#78-source_control) |
+| `status.set` | `{message, error?}`: one line, at most 80 characters | [§7.9](https://github.com/tekchansin/Infinity-Core-API/blob/main/spec/SPEC.md#79-status) |
+| `actions.set` | `{actions: [{id, label, on: ["track","album","artist"]}]}` | [§7.6](https://github.com/tekchansin/Infinity-Core-API/blob/main/spec/SPEC.md#76-actions) |
+| `volume_control.register` | `{id, name, value, min, max, step, unit, muted}` | [§7.7](https://github.com/tekchansin/Infinity-Core-API/blob/main/spec/SPEC.md#77-volume_control) |
+| `volume_control.update` | `{id, value, muted}` | [§7.7](https://github.com/tekchansin/Infinity-Core-API/blob/main/spec/SPEC.md#77-volume_control) |
+| `source_control.register` | `{id, name, standby}` | [§7.8](https://github.com/tekchansin/Infinity-Core-API/blob/main/spec/SPEC.md#78-source_control) |
 
 Infinity Core keeps these for the current connection only, so send them from `on_ready`. It ignores `actions.set`
 and the `*_control.*` ones until the extension is enabled with that service in `provides`.
@@ -243,7 +243,7 @@ and the `*_control.*` ones until the extension is enabled with that service in `
 
 Subscribes to events (`zone.changed`, `zone.removed`, `queue.changed`, `outputs.changed`, `library.changed`) and
 returns the answer of `events.subscribe`: the current state of what you asked for
-([SPEC §5.1](../../spec/SPEC.md#51-core)). For `zone.changed` it holds a `zones` list, for `outputs.changed` an
+([SPEC §5.1](https://github.com/tekchansin/Infinity-Core-API/blob/main/spec/SPEC.md#51-core)). For `zone.changed` it holds a `zones` list, for `outputs.changed` an
 `outputs` list.
 
 The SDK remembers every event you subscribe to and subscribes again, before `on_ready`, each time the state becomes
@@ -277,7 +277,7 @@ except ica.Error as e:
 
 Raised by `run()` when Infinity Core's key differs from the `pin` you gave, or from the one saved the first time.
 The message is `"<host>: the Core's key changed. Remove the extension's saved state if this is expected."` Stop and
-tell the person ([SPEC §2.2](../../spec/SPEC.md#22-the-connection)). If they reinstalled Infinity Core or moved it,
+tell the person ([SPEC §2.2](https://github.com/tekchansin/Infinity-Core-API/blob/main/spec/SPEC.md#22-the-connection)). If they reinstalled Infinity Core or moved it,
 delete that Core's file in `state_dir` and start again; the Owner then enables the extension again.
 
 ### `Stopped(state, reason="")`
@@ -310,7 +310,7 @@ up in Settings › Extensions.
 ### `await discover(timeout=2.0)`
 
 Finds Infinity Cores on the network that speak this API, by DNS-SD `_infinity-core._tcp.local`
-([SPEC §2.1](../../spec/SPEC.md#21-finding-infinity-core)). It listens for `timeout` seconds and returns a list of
+([SPEC §2.1](https://github.com/tekchansin/Infinity-Core-API/blob/main/spec/SPEC.md#21-finding-infinity-core)). It listens for `timeout` seconds and returns a list of
 `{"name", "host", "port", "id", "pin"}`. Cores whose TXT record has no `api=1` are left out. `host` is the first
 address zeroconf reports. It needs `pip install zeroconf` (the `discovery` extra) and raises `RuntimeError` without it.
 
@@ -352,7 +352,7 @@ That is all it logs: never a token, a pin or a message. What your exception's te
 
 ## Limits
 
-One message is at most 1 MB ([SPEC §2.2](../../spec/SPEC.md#22-the-connection)). A bigger one from Infinity Core
+One message is at most 1 MB ([SPEC §2.2](https://github.com/tekchansin/Infinity-Core-API/blob/main/spec/SPEC.md#22-the-connection)). A bigger one from Infinity Core
 closes the connection; keep yours under it too. No audio travels over this API.
 
 ## Licence
