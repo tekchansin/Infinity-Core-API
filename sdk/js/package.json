@@ -1,0 +1,12 @@
+{
+  "name": "infinity-core-api",
+  "version": "1.0.0-preview.1",
+  "description": "Write extensions for Infinity Core: control it, read its library, and give it lyrics, album and artist information, covers, amp volume and more.",
+  "type": "module",
+  "main": "index.mjs",
+  "exports": "./index.mjs",
+  "engines": { "node": ">=18" },
+  "license": "MIT",
+  "keywords": ["infinity-core", "music", "extension", "json-rpc"],
+  "optionalDependencies": { "bonjour-service": "^1.2.1" }
+}
